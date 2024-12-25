@@ -1,6 +1,6 @@
 package com.project.fooddeliveryapp;
 
-import com.project.fooddeliveryapp.model.Customer;
+import com.project.fooddeliveryapp.model.users.Customers;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -43,7 +43,7 @@ class FoodDeliveryAppApplicationTests {
             em.getTransaction().begin();
 
             // Create and persist a customer
-            Customer customer = new Customer();
+            Customers customer = new Customers();
             customer.setName("Test Customer");
             customer.setEmail("test@mail.com");
             customer.setRole("Customer");
@@ -53,7 +53,7 @@ class FoodDeliveryAppApplicationTests {
             em.getTransaction().commit();
 
             // Verify if the customer was persisted
-            Customer persistedCustomer = em.find(Customer.class, customer.getId());
+            Customers persistedCustomer = em.find(Customers.class, customer.getId());
             assertNotNull(persistedCustomer, "Persisted customer should not be null");
         } finally {
             em.close();

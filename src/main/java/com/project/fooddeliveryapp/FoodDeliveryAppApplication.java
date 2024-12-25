@@ -1,6 +1,6 @@
 package com.project.fooddeliveryapp;
 
-import com.project.fooddeliveryapp.model.Customer;
+import com.project.fooddeliveryapp.model.users.Customers;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -25,7 +25,7 @@ public class FoodDeliveryAppApplication {
 	private static void init(EntityManager em) {
 		em.getTransaction().begin();
 
-		Customer customer = new Customer();
+		Customers customer = new Customers();
 		customer.setAddress("Address 1");
 		customer.setEmail("customer@mail");
 		customer.setName("Customer 1");
@@ -39,7 +39,7 @@ public class FoodDeliveryAppApplication {
 	private static void sample(EntityManager em) {
 		em.getTransaction().begin();
 
-		Customer customer = em.find(Customer.class, 1);
+		Customers customer = em.find(Customers.class, 1);
 		System.out.println(customer.getName());
 
 		em.getTransaction().rollback();

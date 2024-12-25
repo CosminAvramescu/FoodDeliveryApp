@@ -6,10 +6,15 @@
     <persistence-unit name="persistenceUnit.foodDelivery">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.project.fooddeliveryapp.model.Orders</class>
-        <class>com.project.fooddeliveryapp.model.User</class>
-        <class>com.project.fooddeliveryapp.model.Customer</class>
-        <class>com.project.fooddeliveryapp.model.DeliveryPartner</class>
+        <class>com.project.fooddeliveryapp.model.users.Users</class>
+        <class>com.project.fooddeliveryapp.model.users.Customers</class>
+        <class>com.project.fooddeliveryapp.model.users.DeliveryPartners</class>
+        <class>com.project.fooddeliveryapp.model.food.Restaurants</class>
+        <class>com.project.fooddeliveryapp.model.food.Menus</class>
+        <class>com.project.fooddeliveryapp.model.food.Items</class>
+        <class>com.project.fooddeliveryapp.model.food.ProductItems</class>
+        <class>com.project.fooddeliveryapp.model.orders.Orders</class>
+        <class>com.project.fooddeliveryapp.model.orders.OrderItems</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
@@ -23,7 +28,7 @@
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.cache.use.query_cache" value="false"/>
             <property name="hibernate.cache.use_second_level_cache" value="false"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>

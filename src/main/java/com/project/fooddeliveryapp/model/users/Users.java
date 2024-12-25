@@ -1,16 +1,16 @@
-package com.project.fooddeliveryapp.model;
+package com.project.fooddeliveryapp.model.users;
 
 import jakarta.persistence.*;
 
-@MappedSuperclass
+@Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class User {
+public abstract class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
     private String email;
+    private String phone;
     private String role;
 
     public Long getId() {
@@ -32,6 +32,14 @@ public abstract class User {
         this.email = email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getRole() {
         return role;
     }
@@ -40,3 +48,4 @@ public abstract class User {
         this.role = role;
     }
 }
+

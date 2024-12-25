@@ -1,6 +1,6 @@
 package com.project.fooddeliveryapp.repository;
 
-import com.project.fooddeliveryapp.model.Orders;
+import com.project.fooddeliveryapp.model.orders.Orders;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
