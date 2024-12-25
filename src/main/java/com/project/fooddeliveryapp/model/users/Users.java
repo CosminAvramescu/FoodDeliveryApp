@@ -2,20 +2,13 @@ package com.project.fooddeliveryapp.model.users;
 
 import jakarta.persistence.*;
 
-@Entity
+@MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String name;
     private String email;
     private String phone;
     private String role;
-
-    public Long getId() {
-        return id;
-    }
     public String getName() {
         return name;
     }

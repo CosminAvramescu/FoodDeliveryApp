@@ -6,10 +6,17 @@ import java.util.*;
 
 @Entity
 public class DeliveryPartners extends Users {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @OneToMany(mappedBy = "deliveryPartner")
     private List<Orders> orders = new ArrayList<>();
     private String vehicleDetails;
     private Boolean available;
+
+    public Long getId() {
+        return id;
+    }
 
     public List<Orders> getOrders() {
         return orders;

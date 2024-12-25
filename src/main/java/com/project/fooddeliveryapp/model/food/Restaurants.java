@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Restaurants {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     @JoinColumn(name = "menu_id", nullable = false)

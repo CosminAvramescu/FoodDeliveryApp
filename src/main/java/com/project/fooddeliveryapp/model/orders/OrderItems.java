@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 
 @Entity
 public class OrderItems extends Items {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "productItem_id", nullable = false)
     private ProductItems productItem;
@@ -13,6 +16,10 @@ public class OrderItems extends Items {
     @JoinColumn(name = "order_id", nullable = false)
     private Orders order;
     private Integer quantity;
+
+    public Long getId() {
+        return id;
+    }
 
     public ProductItems getProductItem() {
         return productItem;

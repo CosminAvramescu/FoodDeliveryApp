@@ -6,7 +6,7 @@ import java.util.*;
 @Entity
 public class Menus {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToMany(mappedBy = "menu")
     private List<ProductItems> productItems = new ArrayList<>();
