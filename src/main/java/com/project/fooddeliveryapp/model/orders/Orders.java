@@ -10,7 +10,8 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "order")
+    @OneToMany
+    @JoinColumn(name = "order_id")
     private List<OrderItems> orderItems = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
@@ -19,6 +20,8 @@ public class Orders {
     @JoinColumn(name = "deliveryPartner_id", nullable = false)
     private DeliveryPartners deliveryPartner;
     private Double totalAmount;
+
+    private String orderTime;
 
     public Long getId() {
         return id;
@@ -54,6 +57,14 @@ public class Orders {
 
     public void setDeliveryPartner(DeliveryPartners deliveryPartner) {
         this.deliveryPartner = deliveryPartner;
+    }
+
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(String orderTime) {
+        this.orderTime = orderTime;
     }
 }
 
