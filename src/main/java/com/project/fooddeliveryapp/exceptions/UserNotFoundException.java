@@ -1,7 +1,7 @@
 package com.project.fooddeliveryapp.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
-    private Long id;
+    private final Long id;
 
     public UserNotFoundException(Long id) {
         this.id = id;

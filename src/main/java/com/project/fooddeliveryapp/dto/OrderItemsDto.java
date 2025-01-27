@@ -1,4 +1,4 @@
 package com.project.fooddeliveryapp.dto;
 
-public record OrderItemsDto() {
+public record OrderItemsDto(String name, double price, int quantity) {
 }

@@ -4,10 +4,7 @@ import com.project.fooddeliveryapp.model.food.Menus;
 import com.project.fooddeliveryapp.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +17,15 @@ public class MenusController {
     @PostMapping("/add")
     public List<Menus> addMenu(@RequestBody List<Menus> menus) {
         return menuService.addMenu(menus);
+    }
+
+    @GetMapping("/get")
+    public List<Menus> getMenus() {
+        return menuService.getMenus();
+    }
+
+    @GetMapping("/getByRestaurant")
+    public Menus getMenus(@RequestParam Long restaurantId) {
+        return menuService.getMenusByRestaurant(restaurantId);
     }
 }

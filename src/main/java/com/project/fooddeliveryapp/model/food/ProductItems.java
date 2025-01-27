@@ -1,8 +1,12 @@
 package com.project.fooddeliveryapp.model.food;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class ProductItems extends Items {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,15 +15,4 @@ public class ProductItems extends Items {
     @JoinColumn(name = "menu_id")
     private Menus menu;
 
-    public Long getId() {
-        return id;
-    }
-
-    public Menus getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menus menu) {
-        this.menu = menu;
-    }
 }
