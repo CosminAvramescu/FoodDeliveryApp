@@ -22,7 +22,7 @@ public class UserService {
     @Autowired
     private final DeliveryPartnerRepository deliveryPartnerRepository;
 
-    public List<Customers> addCustomer(List<Customers> customers) {
+    public List<Customers> addCustomers(List<Customers> customers) {
         return customerRepository.saveAll(customers);
     }
 

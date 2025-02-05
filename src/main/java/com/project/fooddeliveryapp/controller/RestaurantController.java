@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/restaurant")
@@ -16,12 +17,12 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @PostMapping("/add")
-    public List<Restaurants> addRestaurant(@RequestBody List<Restaurants> restaurants) {
-        return restaurantService.addRestaurant(restaurants);
+    public List<Restaurants> addRestaurants(@RequestBody List<Restaurants> restaurants) {
+        return restaurantService.addRestaurants(restaurants);
     }
 
     @GetMapping("/get")
-    public List<Restaurants> getRestaurants() {
-        return restaurantService.getRestaurants();
+    public List<Restaurants> getRestaurants() throws ExecutionException, InterruptedException {
+        return restaurantService.getRestaurants().get();
     }
 }

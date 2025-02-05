@@ -4,7 +4,6 @@ import com.project.fooddeliveryapp.dto.OrderItemsDto;
 import com.project.fooddeliveryapp.dto.OrdersDto;
 import com.project.fooddeliveryapp.model.orders.Orders;
 import com.project.fooddeliveryapp.service.OrderService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,17 +18,17 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping("/add")
-    public OrdersDto addOrder(@RequestBody Orders order, @RequestParam Long customerId) {
-        return orderService.addOrder(order, customerId);
+    public synchronized OrdersDto addOrders(@RequestBody Orders order, @RequestParam Long customerId) {
+        return orderService.addOrders(order, customerId);
     }
 
     @GetMapping("/get")
-    public List<OrdersDto> getOrderByCustomerId(@RequestParam Long customerId) {
-        return orderService.getOrderByCustomerId(customerId);
+    public List<OrdersDto> getOrdersByCustomerId(@RequestParam Long customerId) {
+        return orderService.getOrdersByCustomerId(customerId);
     }
 
     @GetMapping("/getOrderItems")
-    public List<OrderItemsDto> getOrderItems(@RequestParam Long orderId) {
-        return orderService.getOrderItems(orderId);
+    public List<OrderItemsDto> getOrderItemsByOrderId(@RequestParam Long orderId) {
+        return orderService.getOrderItemsByOrderId(orderId);
     }
 }

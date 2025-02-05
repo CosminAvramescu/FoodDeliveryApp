@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +21,7 @@ public class MenuService {
     @Autowired
     private final RestaurantRepository restaurantRepository;
 
-    public List<Menus> addMenu(List<Menus> menus) {
+    public List<Menus> addMenus(List<Menus> menus) {
         return menuRepository.saveAll(menus);
     }
 
@@ -29,15 +29,10 @@ public class MenuService {
         return menuRepository.findAll();
     }
 
-    public Menus getMenusByRestaurant(Long restaurantId) {
-        Restaurants restaurant;
-
-        try {
-            restaurant = restaurantRepository.findById(restaurantId).orElseThrow();
-        } catch (NoSuchElementException e) {
-            throw new RestaurantNotFoundException(restaurantId);
-        }
-
-        return restaurant.getMenu();
+    public CompletableFuture<Menus> getMenusByRestaurant(Long restaurantId) {
+        return CompletableFuture.supplyAsync(() ->
+                restaurantRepository.findById(restaurantId)
+                        .orElseThrow(() -> new RestaurantNotFoundException(restaurantId))
+        ).thenApply(Restaurants::getMenu);
     }
 }

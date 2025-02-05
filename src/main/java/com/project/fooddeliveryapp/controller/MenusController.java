@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("/menu")
@@ -15,8 +16,8 @@ public class MenusController {
     @Autowired
     private final MenuService menuService;
     @PostMapping("/add")
-    public List<Menus> addMenu(@RequestBody List<Menus> menus) {
-        return menuService.addMenu(menus);
+    public List<Menus> addMenus(@RequestBody List<Menus> menus) {
+        return menuService.addMenus(menus);
     }
 
     @GetMapping("/get")
@@ -25,7 +26,7 @@ public class MenusController {
     }
 
     @GetMapping("/getByRestaurant")
-    public Menus getMenus(@RequestParam Long restaurantId) {
-        return menuService.getMenusByRestaurant(restaurantId);
+    public Menus getMenus(@RequestParam Long restaurantId) throws ExecutionException, InterruptedException {
+        return menuService.getMenusByRestaurant(restaurantId).get();
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +24,7 @@ public class ItemService {
     @Autowired
     private final MenuRepository menuRepository;
 
-    public List<ProductItems> addProductItem(List<ProductItems> productItems) {
+    public List<ProductItems> addProductItems(List<ProductItems> productItems) {
         for (ProductItems productItem : productItems) {
             productItem.setMenu(menuRepository.findById(productItem.getMenu().getId()).orElseThrow());
         }
@@ -34,7 +35,7 @@ public class ItemService {
         return orderItemRepository.save(orderItem);
     }
 
-    public List<ProductItems> getProductItems() {
-        return productItemRepository.findAll();
+    public CompletableFuture<List<ProductItems>> getProductItems() {
+        return CompletableFuture.supplyAsync(productItemRepository::findAll);
     }
 }

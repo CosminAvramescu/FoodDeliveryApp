@@ -19,8 +19,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/add/customer")
-    public List<Customers> addCustomer(@RequestBody List<Customers> customers) {
-        return userService.addCustomer(customers);
+    public List<Customers> addCustomers(@RequestBody List<Customers> customers) {
+        return userService.addCustomers(customers);
     }
 
     @PostMapping("/add/deliveryPartner")
