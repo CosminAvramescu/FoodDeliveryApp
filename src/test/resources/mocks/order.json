@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "orderTime": "2025-02-05T14:00:00",
+  "deliveryPartner": {
+    "id": 10,
+    "name": "John Doe",
+    "vehicleDetails": "Car - Toyota Prius",
+    "available": true
+  },
+  "orderItems": [
+    {
+      "id": 1,
+      "quantity": 2,
+      "productItem": {
+        "id": 100,
+        "name": "Pizza",
+        "price": 9.99
+      }
+    }
+  ],
+  "totalAmount": 100.0
+}

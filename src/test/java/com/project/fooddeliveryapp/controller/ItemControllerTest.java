@@ -13,6 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,11 +53,13 @@ public class ItemControllerTest {
 
     @Test
     public void testAddProductItems() throws Exception {
+        String jsonContent = Files.readString(Paths.get("src/test/resources/mocks/productItems.json"));
+
         when(itemService.addProductItems(anyList())).thenReturn(productItemsList);
 
         mockMvc.perform(post("/items/add/productItem")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("[{\"id\": 1, \"name\": \"Pizza\", \"price\": 9.99}]"))
+                        .content(jsonContent))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[0].name").value("Pizza"))
@@ -66,11 +70,13 @@ public class ItemControllerTest {
 
     @Test
     public void testAddOrderItem() throws Exception {
+        String jsonContent = Files.readString(Paths.get("src/test/resources/mocks/orderItem.json"));
+
         when(itemService.addOrderItem(any(OrderItems.class))).thenReturn(orderItem);
 
         mockMvc.perform(post("/items/add/orderItem")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"id\": 1, \"quantity\": 2}"))
+                        .content(jsonContent))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1))
                 .andExpect(jsonPath("$.quantity").value(2));

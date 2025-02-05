@@ -12,6 +12,7 @@ import com.project.fooddeliveryapp.model.users.DeliveryPartners;
 import com.project.fooddeliveryapp.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -36,6 +37,12 @@ public class OrderService {
     @Autowired
     private final ProductItemRepository productItemRepository;
 
+    @Value("${discount.limit}")
+    private double discountLimit;
+
+    @Value("${discount.rate}")
+    private double discountRate;
+
     public OrdersDto addOrders(Orders order, Long customerId) {
         Customers customer;
         try {
@@ -54,7 +61,7 @@ public class OrderService {
             }
         }
 
-        if(!found){
+        if (!found) {
             throw new AvailableDeliveryPartnerNotFoundException();
         }
 
@@ -73,6 +80,10 @@ public class OrderService {
                                 .sum()
                 ).setScale(2, RoundingMode.HALF_UP).doubleValue()
         );
+
+        if (order.getTotalAmount() >= discountLimit) {
+            order.setTotalAmount(order.getTotalAmount() * (1 - discountRate));
+        }
 
         int totalQuantity = order.getOrderItems().stream()
                 .mapToInt(OrderItems::getQuantity)
