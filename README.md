@@ -1,13 +1,13 @@
-# FoodDeliveryApp
-
 <!-- ABOUT THE PROJECT -->
 # ABOUT THE PROJECT
-![alt text](assets/db_diagram.png)
 
-	This is the backend of a Food Delivery App in which I practiced working with Hibernate, JPA Repository and RestController.
-    The app has a database with 7 tables and i used the strategy InheritanceType.TABLE_PER_CLASS for the inheritance between the classes.
+	This is the backend of a Food Delivery App.
+    I practiced working with Hibernate, JPA Repository and RestController.
+    The app has a database with 7 tables.
+    I used the strategy InheritanceType.TABLE_PER_CLASS for the inheritance between the classes.
     The app has 2 types of users: Customer and DeliveryPartner.
-    The customer can see the menus of each restaurant and place an order. The available delivery partner will take its order and deliver it.
+    The customer can see the menus of each restaurant and place an order. 
+    The available delivery partner will take its order and deliver it.
     
     I implemented 81% line coverage in unit tests. 
     I used Aspect Oriented Programming (AOP) and log4j for logging.
@@ -45,9 +45,9 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Run Spring backend
-2. Run Python backend
-3. Run Flutter frontend
+1. Open the MySQL Workbench
+2. Run Spring backend
+3. Run the requests from the Postman collection
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -81,6 +81,9 @@ Project Link: [https://github.com/CosminAvramescu/FoodDeliveryApp](https://githu
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
+* [Spring Documentation](https://docs.spring.io/spring-boot/docs/current)
+* [AOP programming](https://www.baeldung.com/spring-aspect-oriented-programming-logging)
+* [Inheritance Strategy](https://thorben-janssen.com/complete-guide-inheritance-strategies-jpa-hibernate/)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
