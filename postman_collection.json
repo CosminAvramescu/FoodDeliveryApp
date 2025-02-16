@@ -1,0 +1,256 @@
+{
+	"info": {
+		"name": "FoodDeliveryApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add customers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"John Doe\",\r\n        \"email\": \"johndoe@example.com\",\r\n        \"phone\": \"+1234567890\",\r\n        \"role\": \"customer\",\r\n        \"address\": \"123 Main Street, Springfield\"\r\n    },\r\n    {\r\n        \"name\": \"Alice Brown\",\r\n        \"email\": \"alicebrown@example.com\",\r\n        \"phone\": \"+1122334455\",\r\n        \"role\": \"customer\",\r\n        \"address\": \"456 Elm Street, Metropolis\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/user/add/customer"
+			},
+			"response": []
+		},
+		{
+			"name": "Get customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/user/getCustomers"
+			},
+			"response": []
+		},
+		{
+			"name": "Add deliveryPartners",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"Bob Carter\",\r\n        \"email\": \"bobcarter@example.com\",\r\n        \"phone\": \"+6677889900\",\r\n        \"role\": \"deliveryPartner\",\r\n        \"vehicleDetails\": \"Car - Toyota Prius\",\r\n        \"available\": true\r\n    },\r\n    {\r\n        \"name\": \"Jane Smith\",\r\n        \"email\": \"janesmith@example.com\",\r\n        \"phone\": \"+0987654321\",\r\n        \"role\": \"deliveryPartner\",\r\n        \"vehicleDetails\": \"Bike - Yamaha MT15\",\r\n        \"available\": false\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/user/add/deliveryPartner"
+			},
+			"response": []
+		},
+		{
+			"name": "Get delivery partners",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/user/getDeliveryPartners"
+			},
+			"response": []
+		},
+		{
+			"name": "Add menus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {},\r\n    {}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/menu/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get menus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/menu/get"
+			},
+			"response": []
+		},
+		{
+			"name": "Add restaurants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"Veggie Delights\",\r\n        \"address\": \"123 Veggie Lane, City, Country\",\r\n        \"phone\": \"123-456-7890\",\r\n        \"image\": \"veggiedelights.jpg\",\r\n        \"menu\": {\r\n            \"id\": 1\r\n        }\r\n    },\r\n    {\r\n        \"name\": \"Meat Grill\",\r\n        \"address\": \"456 Meat St, City, Country\",\r\n        \"phone\": \"987-654-3210\",\r\n        \"image\": \"meatlovers.jpg\",\r\n        \"menu\": {\r\n            \"id\": 2\r\n        }\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/restaurant/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get restaurants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/restaurant/get"
+			},
+			"response": []
+		},
+		{
+			"name": "Get menus by restaurant id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/menu/getByRestaurant?restaurantId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"menu",
+						"getByRestaurant"
+					],
+					"query": [
+						{
+							"key": "restaurantId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add productItems",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"name\": \"Veg Burger\",\r\n    \"price\": 5.99,\r\n    \"description\": \"A delicious veggie burger.\",\r\n    \"image\": \"veg_burger.jpg\",\r\n    \"menu\": {\r\n      \"id\": 1\r\n    }\r\n  },\r\n  {\r\n    \"name\": \"Veg Pizza\",\r\n    \"price\": 8.99,\r\n    \"description\": \"A pizza with fresh veggies.\",\r\n    \"image\": \"veg_pizza.jpg\",\r\n    \"menu\": {\r\n      \"id\": 1\r\n    }\r\n  },\r\n  {\r\n    \"name\": \"Chicken Burger\",\r\n    \"price\": 6.99,\r\n    \"description\": \"A tasty chicken burger.\",\r\n    \"image\": \"chicken_burger.jpg\",\r\n    \"menu\": {\r\n      \"id\": 2\r\n    }\r\n  },\r\n  {\r\n    \"name\": \"Chicken Pizza\",\r\n    \"price\": 9.99,\r\n    \"description\": \"A pizza with grilled chicken.\",\r\n    \"image\": \"chicken_pizza.jpg\",\r\n    \"menu\": {\r\n      \"id\": 2\r\n    }\r\n  }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/items/add/productItem"
+			},
+			"response": []
+		},
+		{
+			"name": "Get product items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/items/get"
+			},
+			"response": []
+		},
+		{
+			"name": "Add order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"orderItems\": [\r\n        {\r\n            \"productItem\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"productItem\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/add?customerId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"add"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get orders by customer id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/get?customerId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get order items by order id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/getOrderItems?orderId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"getOrderItems"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
