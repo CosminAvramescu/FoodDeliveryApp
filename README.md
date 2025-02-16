@@ -45,7 +45,7 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Open the MySQL Workbench
+1. Open MySQL Workbench
 2. Run Spring backend
 3. Run the requests from the Postman collection
 
@@ -81,7 +81,7 @@ Project Link: [https://github.com/CosminAvramescu/FoodDeliveryApp](https://githu
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-* [Spring Documentation](https://docs.spring.io/spring-boot/docs/current)
+* [Spring Documentation](https://docs.spring.io/spring-boot/)
 * [AOP programming](https://www.baeldung.com/spring-aspect-oriented-programming-logging)
 * [Inheritance Strategy](https://thorben-janssen.com/complete-guide-inheritance-strategies-jpa-hibernate/)
 
